@@ -25,7 +25,7 @@ namespace E_Security
             try
             {
                 txtExit.BackColor = Color.Black;
-                txtExit.ForeColor = SystemColors.ActiveCaption;
+                txtExit.ForeColor = Color.FromArgb(126, 166,224);
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace E_Security
         {
             try
             {
-                txtExit.BackColor = SystemColors.ActiveCaption;
+                txtExit.BackColor = Color.FromArgb(126, 166, 224);
                 txtExit.ForeColor = Color.Black;
             }
             catch (Exception ex)

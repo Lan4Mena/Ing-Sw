@@ -50,7 +50,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.btnAceptar.Location = new System.Drawing.Point(290, 88);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 23);
@@ -61,7 +61,7 @@
             // 
             // btnSi
             // 
-            this.btnSi.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.btnSi.Location = new System.Drawing.Point(219, 87);
             this.btnSi.Name = "btnSi";
             this.btnSi.Size = new System.Drawing.Size(87, 23);
@@ -72,7 +72,7 @@
             // 
             // btnNo
             // 
-            this.btnNo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.btnNo.Location = new System.Drawing.Point(358, 87);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(87, 23);
