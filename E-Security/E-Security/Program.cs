@@ -16,8 +16,7 @@ namespace E_Security
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            //Se sube a Github
+            Application.Run(new FrmPrincipal());
         }
     }
 }
