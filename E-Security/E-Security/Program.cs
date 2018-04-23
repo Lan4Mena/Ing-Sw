@@ -17,7 +17,6 @@ namespace E_Security
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmPrincipal());
-            //Aún funciona
         }
     }
 }
