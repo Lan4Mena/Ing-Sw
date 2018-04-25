@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,18 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Módulo de Usuarios";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Image = global::E_Security.Properties.Resources.limpiar;
+            this.button3.Location = new System.Drawing.Point(346, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 40);
+            this.button3.TabIndex = 27;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
@@ -228,18 +240,6 @@
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Agregar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = global::E_Security.Properties.Resources.limpiar;
-            this.button3.Location = new System.Drawing.Point(346, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 40);
-            this.button3.TabIndex = 27;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // FrmUsuarios
             // 
