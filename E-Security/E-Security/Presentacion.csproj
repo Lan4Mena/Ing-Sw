@@ -53,6 +53,12 @@
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmContratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContratos.Designer.cs">
+      <DependentUpon>FrmContratos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInformativa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContratos.resx">
+      <DependentUpon>FrmContratos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInformativa.resx">
       <DependentUpon>FrmInformativa.cs</DependentUpon>
@@ -119,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG\e-security-logo.png" />
+    <None Include="IMG\mesnos.png" />
     <None Include="IMG\mas.png" />
     <None Include="IMG\limpiar.png" />
     <None Include="IMG\login.png" />
