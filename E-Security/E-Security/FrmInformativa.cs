@@ -12,6 +12,7 @@ namespace E_Security
 {
     public partial class FrmInformativa : Form
     {
+        //Holis
         Boolean seleccion;
         public FrmInformativa()
         {
