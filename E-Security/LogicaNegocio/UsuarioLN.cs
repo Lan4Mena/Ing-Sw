@@ -49,5 +49,18 @@ namespace LogicaNegocio
                 throw new Exception(ex.Message);
             }
         }
+
+        public bool validarUsuario(string nombreUsuario, string contrasena)
+        {
+            try
+            {
+               return new UsuarioDAL().validarUsuario(nombreUsuario, contrasena);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

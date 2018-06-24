@@ -64,5 +64,21 @@ namespace AccesoDatos
                 throw new Exception(ex.Message);
             }
         }
+
+        public bool validarUsuario(string nombreUsuario, string contrasena)
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db=new DBEsparzaSeguridadEntities())
+                {
+                    return db.TBL_USUARIOS.First(TBL_USUARIOS => TBL_USUARIOS.Nombre_Usuario==nombreUsuario && TBL_USUARIOS.contrasena==contrasena) != null;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
