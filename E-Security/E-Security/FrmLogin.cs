@@ -84,7 +84,7 @@ namespace E_Security
             try
             {
                 FrmInformativa informativa = new FrmInformativa();
-                informativa.mostrarMensajeSiNo("Hasta Luego", "¿Verdaderamente desea salir?");
+                informativa.mostrarMensajeSiNo("Hasta Luego", "¿Desea salir?");
                 informativa.ShowDialog();
                 if (informativa.Seleccion)
                     this.Dispose();
