@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
+using LogicaNegocio;
 
 namespace E_Security
 {
@@ -14,6 +16,7 @@ namespace E_Security
     {
         FrmPrincipal padre;
         Boolean validado = false;//Para cerrar la ventana principal en caso de no hacer el LogIn correctamente
+        UsuarioLN usuarioLN = new UsuarioLN();
         public FrmLogin(FrmPrincipal padre)//Contructor que recibe la ventana padre para bloquearla
         {
             InitializeComponent();
@@ -100,6 +103,10 @@ namespace E_Security
         {
             try
             {
+                if (usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text))
+                {
+                    validado = true;
+                }
             }
             catch (Exception ex)
             {
