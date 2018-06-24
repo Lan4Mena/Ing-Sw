@@ -36,6 +36,7 @@ namespace E_Security
             {
                 Console.WriteLine(value);
                 txtCedCliente.Text = Convert.ToString(value.ToString());
+                //Esto es un cambio, v2
             }
 
 
