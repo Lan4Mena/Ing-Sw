@@ -35,7 +35,7 @@ namespace E_Security
             foreach (var value in consultarContratosTB)
             {
                 Console.WriteLine(value);
-                txtCedCliente.Text = Convert.ToString(value.ToString());
+                txtCedCliente.Text = Convert.ToString(value.ToString());n
             }
 
 
