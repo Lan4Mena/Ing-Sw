@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="028db943180445508311971c21ec4b1d" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.DETALLE_CONTRATO" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_CLIENTE_CORREOS" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_CLIENTE_TELEFONOS" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_CLIENTES" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_CONTRATOS" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_INVENTARIO" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_INVENTARIO_OFICIALES" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_OFICIALES" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_TIPO_CEDULAS" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEsparzaSeguridadModel.TBL_USUARIOS" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__DETALLE_C__ID_CO__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__DETALLE_C__ID_OF__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_CLIEN__ID_CL__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_CLIEN__ID_CL__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_CONTR__ID_CL__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_TIPO___ID_CL__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_CONTR__ID_US__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_INVEN__ID_IN__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEsparzaSeguridadModel.FK__TBL_INVEN__ID_OF__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
