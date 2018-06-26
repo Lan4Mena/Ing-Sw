@@ -29,17 +29,23 @@ namespace E_Security
 
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
             consultarContratosTB.Add(logicaLN.consultaContrataciones(txtIdContrato.Text));
-            foreach (var value in consultarContratosTB)
+            if (logicaLN.consultaContrataciones(txtIdContrato.Text) != null)
             {
-                Console.WriteLine(value);
-                txtCedCliente.Text = Convert.ToString(value.ToString());
-                //Esto es un cambio, v2
+                foreach (var value in consultarContratosTB)
+                {
+                    Console.WriteLine("Entra a revisar lista de objetos");
+                    Console.WriteLine(value.ToString());
+                    //Esto es un cambio, v2
+                }
             }
-
-
+            else
+            {
+                MessageBox.Show("No existen contratos registados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }

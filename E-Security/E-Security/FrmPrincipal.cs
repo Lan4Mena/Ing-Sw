@@ -13,6 +13,7 @@ namespace E_Security
     public partial class FrmPrincipal : Form
     {
         ReportCliente reporte;
+        FrmContratos contratos;
         public FrmPrincipal()
         {
             
@@ -50,6 +51,12 @@ namespace E_Security
         {
             reporte = new ReportCliente();
             reporte.ShowDialog();
+        }
+
+        private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            contratos = new FrmContratos();
+            contratos.ShowDialog();
         }
     }
 }
