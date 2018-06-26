@@ -12,11 +12,13 @@ namespace E_Security
 {
     public partial class FrmPrincipal : Form
     {
+        ReportCliente reporte;
         public FrmPrincipal()
         {
+            
             InitializeComponent();
+           
         }
-
         public string Login{get{return labelLogin.Text; }set{labelLogin.Text = value;}}
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -40,9 +42,14 @@ namespace E_Security
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void reportClientes_Click(object sender, EventArgs e)
+        {
+            reporte = new ReportCliente();
+            reporte.ShowDialog();
         }
     }
 }

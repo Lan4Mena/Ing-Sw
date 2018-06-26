@@ -62,6 +62,8 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +78,8 @@
             this.helpToolStripMenuItem,
             this.inventarioToolStripMenuItem,
             this.empleadosToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -273,6 +276,19 @@
             this.labelLogin.ForeColor = System.Drawing.Color.Black;
             this.labelLogin.Name = "labelLogin";
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportClientes});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
+            // 
+            // reportClientes
+            // 
+            this.reportClientes.Name = "reportClientes";
+            resources.ApplyResources(this.reportClientes, "reportClientes");
+            this.reportClientes.Click += new System.EventHandler(this.reportClientes_Click);
+            // 
             // FrmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -329,6 +345,8 @@
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportClientes;
     }
 }
 
