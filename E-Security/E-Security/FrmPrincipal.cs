@@ -31,5 +31,18 @@ namespace E_Security
                 throw new Exception(ex.Message);
             }
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new FrmUsuarios().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

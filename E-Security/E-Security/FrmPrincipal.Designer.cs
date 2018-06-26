@@ -256,6 +256,7 @@
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             resources.ApplyResources(this.usuariosToolStripMenuItem, "usuariosToolStripMenuItem");
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
