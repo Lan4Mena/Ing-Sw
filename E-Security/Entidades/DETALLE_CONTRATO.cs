@@ -21,5 +21,6 @@ namespace Entidades
     
         public virtual TBL_CONTRATOS TBL_CONTRATOS { get; set; }
         public virtual TBL_OFICIALES TBL_OFICIALES { get; set; }
+
     }
 }
