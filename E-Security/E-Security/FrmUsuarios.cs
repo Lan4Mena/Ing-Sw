@@ -35,6 +35,9 @@ namespace E_Security
                     txtNombre.Text = usuario.nombre_completo;
                     txtIdUsuario.Text = usuario.ID_Usuario.ToString();
                     txtNombreUsuario.Text = usuario.Nombre_Usuario;
+                    txtContrasena.Text = usuario.contrasena;
+                    txtContrasenaDos.Text = usuario.contrasena;
+                    rbActivo.Checked = (Boolean)usuario.estado;
                 }
                 else
                 {
@@ -54,16 +57,14 @@ namespace E_Security
             }
         }
 
-
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmInformativa frm = new FrmInformativa();
             try
             {
-                if (usuario != null)//Verificar si los campos están vacios
+                if (true)//Verificar si los campos están vacios
                 {
-                    if (usuarioLN.agregarUsuario(new TBL_USUARIOS() { identificacion = txtCedula.Text, estado = true, contrasena = txtContrasena.Text, nombre_completo = txtNombre.Text, Nombre_Usuario = txtNombreUsuario.Text }))
+                    if (usuarioLN.agregarUsuario(new TBL_USUARIOS() { identificacion = txtCedula.Text, estado = rbActivo.Checked, contrasena = txtContrasena.Text, nombre_completo = txtNombre.Text, Nombre_Usuario = txtNombreUsuario.Text }))
                     {
                         frm.mostrarMensaje("Exito", "Usuario Agregado");
                         //Limpiar campos
@@ -76,12 +77,8 @@ namespace E_Security
                 else
                 {
                     frm.mostrarMensaje("Error", "Rellene todos los campos");
-                    frm.ShowDialog();
-                    if (frm.Seleccion)
-                    {
-                        //Habilitar Agregar
-                    }
                 }
+                frm.ShowDialog();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -93,7 +90,7 @@ namespace E_Security
             FrmInformativa frm = new FrmInformativa();
             try
             {
-                if (usuario != null)//Verificar si los campos están vacios
+                if (true)//Verificar si los campos están vacios
                 {
                     if (usuarioLN.modificarUsuario(new TBL_USUARIOS() { identificacion = txtCedula.Text, estado = true, contrasena = txtContrasena.Text, nombre_completo = txtNombre.Text, Nombre_Usuario = txtNombreUsuario.Text }))
                     {
@@ -108,15 +105,56 @@ namespace E_Security
                 else
                 {
                     frm.mostrarMensaje("Error", "Rellene todos los campos");
-                    frm.ShowDialog();
-                    if (frm.Seleccion)
+                }
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            FrmInformativa frm = new FrmInformativa();
+            try
+            {
+                if (true)//Verificar si la cédula está vacia
+                {
+                    if (usuarioLN.eliminarUsuario(txtCedula.Text.Trim()))
                     {
-                        //Habilitar Agregar
+                        frm.mostrarMensaje("Exito", "Eliminado Modificado");
+                        //Limpiar campos
                     }
+                    else
+                    {
+                        frm.mostrarMensaje("Error", "No se pudo Eliminar");
+                    }
+                }
+                else
+                {
+                    frm.mostrarMensaje("Error", "Rellene el campo de cédula");
+                }
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tcUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tcUsuarios.SelectedIndex == 1)
+                {
+                    dgvListado.DataSource = usuarioLN.getListadoUsuarios();
                 }
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
         }
