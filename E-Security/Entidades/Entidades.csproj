@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="TBL_USUARIOS.cs">
       <DependentUpon>EsecurityModel.tt</DependentUpon>
+
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -106,10 +107,12 @@
     </EntityDeploy>
     <None Include="EsecurityModel.edmx.diagram">
       <DependentUpon>EsecurityModel.edmx</DependentUpon>
+
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+
     <Content Include="EsecurityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EsecurityModel.edmx</DependentUpon>
@@ -119,6 +122,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EsecurityModel.edmx</DependentUpon>
       <LastGenOutput>EsecurityModel.cs</LastGenOutput>
+
     </Content>
   </ItemGroup>
   <ItemGroup>

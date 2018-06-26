@@ -1,0 +1,1090 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBEsparzaSeguridadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DETALLE_CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_DETALLE_CONTRATO" />
+          </Key>
+          <Property Name="ID_DETALLE_CONTRATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CONTRATO" Type="int" Nullable="false" />
+          <Property Name="ID_OFICIAL" Type="int" Nullable="false" />
+          <Property Name="MONTO_OFICIAL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE_CORREOS">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_CORREO" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE_CORREO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="CORREO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE_TELEFONOS">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_TELEFONO" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE_TELEFONO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="20" />
+          <Property Name="CORREO" Type="varchar" MaxLength="50" />
+          <Property Name="UBICACION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_CONTRATOS">
+          <Key>
+            <PropertyRef Name="ID_CONTRATO" />
+          </Key>
+          <Property Name="ID_CONTRATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA_INICIAL" Type="datetime" />
+          <Property Name="FECHA_FINAL" Type="datetime" />
+          <Property Name="ESTADO_CONTRATO" Type="bit" Nullable="false" />
+          <Property Name="MONTO_TOTAL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" />
+          <Property Name="ID_CLIENTE" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO" />
+          </Key>
+          <Property Name="ID_INVENTARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ARTICULO" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+          <Property Name="CANTIDAD_INICIAL" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CANTIDAD_ACTUAL" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO_OFICIALES">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO_OFICIAL" />
+          </Key>
+          <Property Name="ID_INVENTARIO_OFICIAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_INVENTARIO" Type="int" Nullable="false" />
+          <Property Name="ID_OFICIAL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_OFICIALES">
+          <Key>
+            <PropertyRef Name="ID_OFICIAL" />
+          </Key>
+          <Property Name="ID_OFICIAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CEDULA_OFICIAL" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NOMBRE_COMPLETO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTEO" Type="datetime" />
+          <Property Name="RESIDENCIA" Type="varchar" MaxLength="20" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="20" />
+          <Property Name="CORREO" Type="varchar" MaxLength="50" />
+          <Property Name="GENERO" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="TBL_TIPO_CEDULAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CEDULA" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_TIPO_CEDULA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="CEDULA" Type="int" Nullable="false" />
+          <Property Name="TIPO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identificacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_completo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
+        <Association Name="FK__DETALLE_C__ID_CO__2F10007B">
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_CO__33D4B598">
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_OF__300424B4">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_OF__32E0915F">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__25869641">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__267ABA7A">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__2B3F6F97">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__2C3393D0">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__36B12243">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__37A5467C">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__286302EC">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__2E1BDC42">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__34C8D9D1">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__276EDEB3">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__2D27B809">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__35BCFE0A">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_INVEN__ID_IN__3D5E1FD2">
+          <End Role="TBL_INVENTARIO" Type="Self.TBL_INVENTARIO" Multiplicity="1" />
+          <End Role="TBL_INVENTARIO_OFICIALES" Type="Self.TBL_INVENTARIO_OFICIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_INVENTARIO">
+              <PropertyRef Name="ID_INVENTARIO" />
+            </Principal>
+            <Dependent Role="TBL_INVENTARIO_OFICIALES">
+              <PropertyRef Name="ID_INVENTARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_INVEN__ID_OF__3E52440B">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="TBL_INVENTARIO_OFICIALES" Type="Self.TBL_INVENTARIO_OFICIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="TBL_INVENTARIO_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__24927208">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__2A4B4B5E">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__38996AB5">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEsparzaSeguridadModelStoreContainer">
+          <EntitySet Name="DETALLE_CONTRATO" EntityType="Self.DETALLE_CONTRATO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CLIENTE_CORREOS" EntityType="Self.TBL_CLIENTE_CORREOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CLIENTE_TELEFONOS" EntityType="Self.TBL_CLIENTE_TELEFONOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CLIENTES" EntityType="Self.TBL_CLIENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CONTRATOS" EntityType="Self.TBL_CONTRATOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_INVENTARIO" EntityType="Self.TBL_INVENTARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_INVENTARIO_OFICIALES" EntityType="Self.TBL_INVENTARIO_OFICIALES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_OFICIALES" EntityType="Self.TBL_OFICIALES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_TIPO_CEDULAS" EntityType="Self.TBL_TIPO_CEDULAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USUARIOS" EntityType="Self.TBL_USUARIOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DETALLE_C__ID_CO__2F10007B" Association="Self.FK__DETALLE_C__ID_CO__2F10007B">
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_CO__33D4B598" Association="Self.FK__DETALLE_C__ID_CO__33D4B598">
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_OF__300424B4" Association="Self.FK__DETALLE_C__ID_OF__300424B4">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_OF__32E0915F" Association="Self.FK__DETALLE_C__ID_OF__32E0915F">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__25869641" Association="Self.FK__TBL_CLIEN__ID_CL__25869641">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__267ABA7A" Association="Self.FK__TBL_CLIEN__ID_CL__267ABA7A">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__2B3F6F97" Association="Self.FK__TBL_CLIEN__ID_CL__2B3F6F97">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__2C3393D0" Association="Self.FK__TBL_CLIEN__ID_CL__2C3393D0">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__36B12243" Association="Self.FK__TBL_CLIEN__ID_CL__36B12243">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__37A5467C" Association="Self.FK__TBL_CLIEN__ID_CL__37A5467C">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__286302EC" Association="Self.FK__TBL_CONTR__ID_CL__286302EC">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__2E1BDC42" Association="Self.FK__TBL_CONTR__ID_CL__2E1BDC42">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__34C8D9D1" Association="Self.FK__TBL_CONTR__ID_CL__34C8D9D1">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__276EDEB3" Association="Self.FK__TBL_CONTR__ID_US__276EDEB3">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__2D27B809" Association="Self.FK__TBL_CONTR__ID_US__2D27B809">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__35BCFE0A" Association="Self.FK__TBL_CONTR__ID_US__35BCFE0A">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_INVEN__ID_IN__3D5E1FD2" Association="Self.FK__TBL_INVEN__ID_IN__3D5E1FD2">
+            <End Role="TBL_INVENTARIO" EntitySet="TBL_INVENTARIO" />
+            <End Role="TBL_INVENTARIO_OFICIALES" EntitySet="TBL_INVENTARIO_OFICIALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_INVEN__ID_OF__3E52440B" Association="Self.FK__TBL_INVEN__ID_OF__3E52440B">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="TBL_INVENTARIO_OFICIALES" EntitySet="TBL_INVENTARIO_OFICIALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__24927208" Association="Self.FK__TBL_TIPO___ID_CL__24927208">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__2A4B4B5E" Association="Self.FK__TBL_TIPO___ID_CL__2A4B4B5E">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__38996AB5" Association="Self.FK__TBL_TIPO___ID_CL__38996AB5">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBEsparzaSeguridadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DETALLE_CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_DETALLE_CONTRATO" />
+          </Key>
+          <Property Name="ID_DETALLE_CONTRATO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" />
+          <Property Name="ID_OFICIAL" Type="Int32" Nullable="false" />
+          <Property Name="MONTO_OFICIAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TBL_CONTRATOS" Relationship="Self.FK__DETALLE_C__ID_CO__2F10007B" FromRole="DETALLE_CONTRATO" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_CONTRATOS1" Relationship="Self.FK__DETALLE_C__ID_CO__33D4B598" FromRole="DETALLE_CONTRATO" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_OFICIALES" Relationship="Self.FK__DETALLE_C__ID_OF__300424B4" FromRole="DETALLE_CONTRATO" ToRole="TBL_OFICIALES" />
+          <NavigationProperty Name="TBL_OFICIALES1" Relationship="Self.FK__DETALLE_C__ID_OF__32E0915F" FromRole="DETALLE_CONTRATO" ToRole="TBL_OFICIALES" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE_CORREOS">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_CORREO" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE_CORREO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TBL_CLIENTES" Relationship="Self.FK__TBL_CLIEN__ID_CL__267ABA7A" FromRole="TBL_CLIENTE_CORREOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES1" Relationship="Self.FK__TBL_CLIEN__ID_CL__2C3393D0" FromRole="TBL_CLIENTE_CORREOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES2" Relationship="Self.FK__TBL_CLIEN__ID_CL__36B12243" FromRole="TBL_CLIENTE_CORREOS" ToRole="TBL_CLIENTES" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE_TELEFONOS">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE_TELEFONO" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE_TELEFONO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_CLIENTES" Relationship="Self.FK__TBL_CLIEN__ID_CL__25869641" FromRole="TBL_CLIENTE_TELEFONOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES1" Relationship="Self.FK__TBL_CLIEN__ID_CL__2B3F6F97" FromRole="TBL_CLIENTE_TELEFONOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES2" Relationship="Self.FK__TBL_CLIEN__ID_CL__37A5467C" FromRole="TBL_CLIENTE_TELEFONOS" ToRole="TBL_CLIENTES" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTES">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UBICACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_CLIENTE_CORREOS" Relationship="Self.FK__TBL_CLIEN__ID_CL__267ABA7A" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_CORREOS" />
+          <NavigationProperty Name="TBL_CLIENTE_CORREOS1" Relationship="Self.FK__TBL_CLIEN__ID_CL__2C3393D0" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_CORREOS" />
+          <NavigationProperty Name="TBL_CLIENTE_CORREOS2" Relationship="Self.FK__TBL_CLIEN__ID_CL__36B12243" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_CORREOS" />
+          <NavigationProperty Name="TBL_CLIENTE_TELEFONOS" Relationship="Self.FK__TBL_CLIEN__ID_CL__25869641" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_TELEFONOS" />
+          <NavigationProperty Name="TBL_CLIENTE_TELEFONOS1" Relationship="Self.FK__TBL_CLIEN__ID_CL__2B3F6F97" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_TELEFONOS" />
+          <NavigationProperty Name="TBL_CLIENTE_TELEFONOS2" Relationship="Self.FK__TBL_CLIEN__ID_CL__37A5467C" FromRole="TBL_CLIENTES" ToRole="TBL_CLIENTE_TELEFONOS" />
+          <NavigationProperty Name="TBL_CONTRATOS" Relationship="Self.FK__TBL_CONTR__ID_CL__286302EC" FromRole="TBL_CLIENTES" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_CONTRATOS1" Relationship="Self.FK__TBL_CONTR__ID_CL__2E1BDC42" FromRole="TBL_CLIENTES" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_CONTRATOS2" Relationship="Self.FK__TBL_CONTR__ID_CL__34C8D9D1" FromRole="TBL_CLIENTES" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_TIPO_CEDULAS" Relationship="Self.FK__TBL_TIPO___ID_CL__24927208" FromRole="TBL_CLIENTES" ToRole="TBL_TIPO_CEDULAS" />
+          <NavigationProperty Name="TBL_TIPO_CEDULAS1" Relationship="Self.FK__TBL_TIPO___ID_CL__2A4B4B5E" FromRole="TBL_CLIENTES" ToRole="TBL_TIPO_CEDULAS" />
+          <NavigationProperty Name="TBL_TIPO_CEDULAS2" Relationship="Self.FK__TBL_TIPO___ID_CL__38996AB5" FromRole="TBL_CLIENTES" ToRole="TBL_TIPO_CEDULAS" />
+        </EntityType>
+        <EntityType Name="TBL_CONTRATOS">
+          <Key>
+            <PropertyRef Name="ID_CONTRATO" />
+          </Key>
+          <Property Name="ID_CONTRATO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA_INICIAL" Type="DateTime" Precision="3" />
+          <Property Name="FECHA_FINAL" Type="DateTime" Precision="3" />
+          <Property Name="ESTADO_CONTRATO" Type="Boolean" Nullable="false" />
+          <Property Name="MONTO_TOTAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Int32" />
+          <Property Name="ID_CLIENTE" Type="Int32" />
+          <NavigationProperty Name="DETALLE_CONTRATO" Relationship="Self.FK__DETALLE_C__ID_CO__2F10007B" FromRole="TBL_CONTRATOS" ToRole="DETALLE_CONTRATO" />
+          <NavigationProperty Name="DETALLE_CONTRATO1" Relationship="Self.FK__DETALLE_C__ID_CO__33D4B598" FromRole="TBL_CONTRATOS" ToRole="DETALLE_CONTRATO" />
+          <NavigationProperty Name="TBL_CLIENTES" Relationship="Self.FK__TBL_CONTR__ID_CL__286302EC" FromRole="TBL_CONTRATOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES1" Relationship="Self.FK__TBL_CONTR__ID_CL__2E1BDC42" FromRole="TBL_CONTRATOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES2" Relationship="Self.FK__TBL_CONTR__ID_CL__34C8D9D1" FromRole="TBL_CONTRATOS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_USUARIOS" Relationship="Self.FK__TBL_CONTR__ID_US__276EDEB3" FromRole="TBL_CONTRATOS" ToRole="TBL_USUARIOS" />
+          <NavigationProperty Name="TBL_USUARIOS1" Relationship="Self.FK__TBL_CONTR__ID_US__2D27B809" FromRole="TBL_CONTRATOS" ToRole="TBL_USUARIOS" />
+          <NavigationProperty Name="TBL_USUARIOS2" Relationship="Self.FK__TBL_CONTR__ID_US__35BCFE0A" FromRole="TBL_CONTRATOS" ToRole="TBL_USUARIOS" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO" />
+          </Key>
+          <Property Name="ID_INVENTARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ARTICULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD_INICIAL" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TBL_INVENTARIO_OFICIALES" Relationship="Self.FK__TBL_INVEN__ID_IN__3D5E1FD2" FromRole="TBL_INVENTARIO" ToRole="TBL_INVENTARIO_OFICIALES" />
+        </EntityType>
+        <EntityType Name="TBL_INVENTARIO_OFICIALES">
+          <Key>
+            <PropertyRef Name="ID_INVENTARIO_OFICIAL" />
+          </Key>
+          <Property Name="ID_INVENTARIO_OFICIAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_INVENTARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_OFICIAL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_INVENTARIO" Relationship="Self.FK__TBL_INVEN__ID_IN__3D5E1FD2" FromRole="TBL_INVENTARIO_OFICIALES" ToRole="TBL_INVENTARIO" />
+          <NavigationProperty Name="TBL_OFICIALES" Relationship="Self.FK__TBL_INVEN__ID_OF__3E52440B" FromRole="TBL_INVENTARIO_OFICIALES" ToRole="TBL_OFICIALES" />
+        </EntityType>
+        <EntityType Name="TBL_OFICIALES">
+          <Key>
+            <PropertyRef Name="ID_OFICIAL" />
+          </Key>
+          <Property Name="ID_OFICIAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CEDULA_OFICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_COMPLETO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTEO" Type="DateTime" Precision="3" />
+          <Property Name="RESIDENCIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GENERO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="DETALLE_CONTRATO" Relationship="Self.FK__DETALLE_C__ID_OF__300424B4" FromRole="TBL_OFICIALES" ToRole="DETALLE_CONTRATO" />
+          <NavigationProperty Name="DETALLE_CONTRATO1" Relationship="Self.FK__DETALLE_C__ID_OF__32E0915F" FromRole="TBL_OFICIALES" ToRole="DETALLE_CONTRATO" />
+          <NavigationProperty Name="TBL_INVENTARIO_OFICIALES" Relationship="Self.FK__TBL_INVEN__ID_OF__3E52440B" FromRole="TBL_OFICIALES" ToRole="TBL_INVENTARIO_OFICIALES" />
+        </EntityType>
+        <EntityType Name="TBL_TIPO_CEDULAS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CEDULA" />
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_TIPO_CEDULA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="CEDULA" Type="Int32" Nullable="false" />
+          <Property Name="TIPO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBL_CLIENTES" Relationship="Self.FK__TBL_TIPO___ID_CL__24927208" FromRole="TBL_TIPO_CEDULAS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES1" Relationship="Self.FK__TBL_TIPO___ID_CL__2A4B4B5E" FromRole="TBL_TIPO_CEDULAS" ToRole="TBL_CLIENTES" />
+          <NavigationProperty Name="TBL_CLIENTES2" Relationship="Self.FK__TBL_TIPO___ID_CL__38996AB5" FromRole="TBL_TIPO_CEDULAS" ToRole="TBL_CLIENTES" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" />
+          <NavigationProperty Name="TBL_CONTRATOS" Relationship="Self.FK__TBL_CONTR__ID_US__276EDEB3" FromRole="TBL_USUARIOS" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_CONTRATOS1" Relationship="Self.FK__TBL_CONTR__ID_US__2D27B809" FromRole="TBL_USUARIOS" ToRole="TBL_CONTRATOS" />
+          <NavigationProperty Name="TBL_CONTRATOS2" Relationship="Self.FK__TBL_CONTR__ID_US__35BCFE0A" FromRole="TBL_USUARIOS" ToRole="TBL_CONTRATOS" />
+        </EntityType>
+        <Association Name="FK__DETALLE_C__ID_CO__2F10007B">
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_CO__33D4B598">
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_OF__300424B4">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__ID_OF__32E0915F">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="DETALLE_CONTRATO" Type="Self.DETALLE_CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="DETALLE_CONTRATO">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__267ABA7A">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__2C3393D0">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__36B12243">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_CORREOS" Type="Self.TBL_CLIENTE_CORREOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_CORREOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__25869641">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__2B3F6F97">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CLIEN__ID_CL__37A5467C">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_CLIENTE_TELEFONOS" Type="Self.TBL_CLIENTE_TELEFONOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CLIENTE_TELEFONOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__286302EC">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__2E1BDC42">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_CL__34C8D9D1">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__24927208">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__2A4B4B5E">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_TIPO___ID_CL__38996AB5">
+          <End Role="TBL_CLIENTES" Type="Self.TBL_CLIENTES" Multiplicity="1" />
+          <End Role="TBL_TIPO_CEDULAS" Type="Self.TBL_TIPO_CEDULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_CLIENTES">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="TBL_TIPO_CEDULAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__276EDEB3">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__2D27B809">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_CONTR__ID_US__35BCFE0A">
+          <End Role="TBL_USUARIOS" Type="Self.TBL_USUARIOS" Multiplicity="0..1" />
+          <End Role="TBL_CONTRATOS" Type="Self.TBL_CONTRATOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIOS">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="TBL_CONTRATOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_INVEN__ID_IN__3D5E1FD2">
+          <End Role="TBL_INVENTARIO" Type="Self.TBL_INVENTARIO" Multiplicity="1" />
+          <End Role="TBL_INVENTARIO_OFICIALES" Type="Self.TBL_INVENTARIO_OFICIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_INVENTARIO">
+              <PropertyRef Name="ID_INVENTARIO" />
+            </Principal>
+            <Dependent Role="TBL_INVENTARIO_OFICIALES">
+              <PropertyRef Name="ID_INVENTARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TBL_INVEN__ID_OF__3E52440B">
+          <End Role="TBL_OFICIALES" Type="Self.TBL_OFICIALES" Multiplicity="1" />
+          <End Role="TBL_INVENTARIO_OFICIALES" Type="Self.TBL_INVENTARIO_OFICIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Principal>
+            <Dependent Role="TBL_INVENTARIO_OFICIALES">
+              <PropertyRef Name="ID_OFICIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEsparzaSeguridadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DETALLE_CONTRATO" EntityType="Self.DETALLE_CONTRATO" />
+          <EntitySet Name="TBL_CLIENTE_CORREOS" EntityType="Self.TBL_CLIENTE_CORREOS" />
+          <EntitySet Name="TBL_CLIENTE_TELEFONOS" EntityType="Self.TBL_CLIENTE_TELEFONOS" />
+          <EntitySet Name="TBL_CLIENTES" EntityType="Self.TBL_CLIENTES" />
+          <EntitySet Name="TBL_CONTRATOS" EntityType="Self.TBL_CONTRATOS" />
+          <EntitySet Name="TBL_INVENTARIO" EntityType="Self.TBL_INVENTARIO" />
+          <EntitySet Name="TBL_INVENTARIO_OFICIALES" EntityType="Self.TBL_INVENTARIO_OFICIALES" />
+          <EntitySet Name="TBL_OFICIALES" EntityType="Self.TBL_OFICIALES" />
+          <EntitySet Name="TBL_TIPO_CEDULAS" EntityType="Self.TBL_TIPO_CEDULAS" />
+          <EntitySet Name="TBL_USUARIOS" EntityType="Self.TBL_USUARIOS" />
+          <AssociationSet Name="FK__DETALLE_C__ID_CO__2F10007B" Association="Self.FK__DETALLE_C__ID_CO__2F10007B">
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_CO__33D4B598" Association="Self.FK__DETALLE_C__ID_CO__33D4B598">
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_OF__300424B4" Association="Self.FK__DETALLE_C__ID_OF__300424B4">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__ID_OF__32E0915F" Association="Self.FK__DETALLE_C__ID_OF__32E0915F">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="DETALLE_CONTRATO" EntitySet="DETALLE_CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__267ABA7A" Association="Self.FK__TBL_CLIEN__ID_CL__267ABA7A">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__2C3393D0" Association="Self.FK__TBL_CLIEN__ID_CL__2C3393D0">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__36B12243" Association="Self.FK__TBL_CLIEN__ID_CL__36B12243">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_CORREOS" EntitySet="TBL_CLIENTE_CORREOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__25869641" Association="Self.FK__TBL_CLIEN__ID_CL__25869641">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__2B3F6F97" Association="Self.FK__TBL_CLIEN__ID_CL__2B3F6F97">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CLIEN__ID_CL__37A5467C" Association="Self.FK__TBL_CLIEN__ID_CL__37A5467C">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CLIENTE_TELEFONOS" EntitySet="TBL_CLIENTE_TELEFONOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__286302EC" Association="Self.FK__TBL_CONTR__ID_CL__286302EC">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__2E1BDC42" Association="Self.FK__TBL_CONTR__ID_CL__2E1BDC42">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_CL__34C8D9D1" Association="Self.FK__TBL_CONTR__ID_CL__34C8D9D1">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__24927208" Association="Self.FK__TBL_TIPO___ID_CL__24927208">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__2A4B4B5E" Association="Self.FK__TBL_TIPO___ID_CL__2A4B4B5E">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_TIPO___ID_CL__38996AB5" Association="Self.FK__TBL_TIPO___ID_CL__38996AB5">
+            <End Role="TBL_CLIENTES" EntitySet="TBL_CLIENTES" />
+            <End Role="TBL_TIPO_CEDULAS" EntitySet="TBL_TIPO_CEDULAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__276EDEB3" Association="Self.FK__TBL_CONTR__ID_US__276EDEB3">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__2D27B809" Association="Self.FK__TBL_CONTR__ID_US__2D27B809">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_CONTR__ID_US__35BCFE0A" Association="Self.FK__TBL_CONTR__ID_US__35BCFE0A">
+            <End Role="TBL_USUARIOS" EntitySet="TBL_USUARIOS" />
+            <End Role="TBL_CONTRATOS" EntitySet="TBL_CONTRATOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_INVEN__ID_IN__3D5E1FD2" Association="Self.FK__TBL_INVEN__ID_IN__3D5E1FD2">
+            <End Role="TBL_INVENTARIO" EntitySet="TBL_INVENTARIO" />
+            <End Role="TBL_INVENTARIO_OFICIALES" EntitySet="TBL_INVENTARIO_OFICIALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TBL_INVEN__ID_OF__3E52440B" Association="Self.FK__TBL_INVEN__ID_OF__3E52440B">
+            <End Role="TBL_OFICIALES" EntitySet="TBL_OFICIALES" />
+            <End Role="TBL_INVENTARIO_OFICIALES" EntitySet="TBL_INVENTARIO_OFICIALES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBEsparzaSeguridadModelStoreContainer" CdmEntityContainer="DBEsparzaSeguridadEntities">
+          <EntitySetMapping Name="DETALLE_CONTRATO">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.DETALLE_CONTRATO">
+              <MappingFragment StoreEntitySet="DETALLE_CONTRATO">
+                <ScalarProperty Name="ID_DETALLE_CONTRATO" ColumnName="ID_DETALLE_CONTRATO" />
+                <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+                <ScalarProperty Name="ID_OFICIAL" ColumnName="ID_OFICIAL" />
+                <ScalarProperty Name="MONTO_OFICIAL" ColumnName="MONTO_OFICIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CLIENTE_CORREOS">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_CLIENTE_CORREOS">
+              <MappingFragment StoreEntitySet="TBL_CLIENTE_CORREOS">
+                <ScalarProperty Name="ID_CLIENTE_CORREO" ColumnName="ID_CLIENTE_CORREO" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CLIENTE_TELEFONOS">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_CLIENTE_TELEFONOS">
+              <MappingFragment StoreEntitySet="TBL_CLIENTE_TELEFONOS">
+                <ScalarProperty Name="ID_CLIENTE_TELEFONO" ColumnName="ID_CLIENTE_TELEFONO" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CLIENTES">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_CLIENTES">
+              <MappingFragment StoreEntitySet="TBL_CLIENTES">
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CONTRATOS">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_CONTRATOS">
+              <MappingFragment StoreEntitySet="TBL_CONTRATOS">
+                <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+                <ScalarProperty Name="FECHA_INICIAL" ColumnName="FECHA_INICIAL" />
+                <ScalarProperty Name="FECHA_FINAL" ColumnName="FECHA_FINAL" />
+                <ScalarProperty Name="ESTADO_CONTRATO" ColumnName="ESTADO_CONTRATO" />
+                <ScalarProperty Name="MONTO_TOTAL" ColumnName="MONTO_TOTAL" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_INVENTARIO">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_INVENTARIO">
+              <MappingFragment StoreEntitySet="TBL_INVENTARIO">
+                <ScalarProperty Name="ID_INVENTARIO" ColumnName="ID_INVENTARIO" />
+                <ScalarProperty Name="ARTICULO" ColumnName="ARTICULO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CANTIDAD_INICIAL" ColumnName="CANTIDAD_INICIAL" />
+                <ScalarProperty Name="CANTIDAD_ACTUAL" ColumnName="CANTIDAD_ACTUAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_INVENTARIO_OFICIALES">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_INVENTARIO_OFICIALES">
+              <MappingFragment StoreEntitySet="TBL_INVENTARIO_OFICIALES">
+                <ScalarProperty Name="ID_INVENTARIO_OFICIAL" ColumnName="ID_INVENTARIO_OFICIAL" />
+                <ScalarProperty Name="ID_INVENTARIO" ColumnName="ID_INVENTARIO" />
+                <ScalarProperty Name="ID_OFICIAL" ColumnName="ID_OFICIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_OFICIALES">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_OFICIALES">
+              <MappingFragment StoreEntitySet="TBL_OFICIALES">
+                <ScalarProperty Name="ID_OFICIAL" ColumnName="ID_OFICIAL" />
+                <ScalarProperty Name="CEDULA_OFICIAL" ColumnName="CEDULA_OFICIAL" />
+                <ScalarProperty Name="NOMBRE_COMPLETO" ColumnName="NOMBRE_COMPLETO" />
+                <ScalarProperty Name="FECHA_NACIMIENTEO" ColumnName="FECHA_NACIMIENTEO" />
+                <ScalarProperty Name="RESIDENCIA" ColumnName="RESIDENCIA" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_TIPO_CEDULAS">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_TIPO_CEDULAS">
+              <MappingFragment StoreEntitySet="TBL_TIPO_CEDULAS">
+                <ScalarProperty Name="ID_TIPO_CEDULA" ColumnName="ID_TIPO_CEDULA" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USUARIOS">
+            <EntityTypeMapping TypeName="DBEsparzaSeguridadModel.TBL_USUARIOS">
+              <MappingFragment StoreEntitySet="TBL_USUARIOS">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+                <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
