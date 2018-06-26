@@ -44,7 +44,7 @@ namespace AccesoDatos
                             });
                         }
 
-                        tbClientes = db.TBL_CLIENTES.First(clientes => clientes.ID_CLIENTE== tbl)
+                        tbClientes = db.TBL_CLIENTES.First(clientes => clientes.ID_CLIENTE == tbl);
                         return true;
                     }
                     else { return false; }
