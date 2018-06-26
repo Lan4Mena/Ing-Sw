@@ -27,7 +27,6 @@ namespace E_Security
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
@@ -40,7 +39,6 @@ namespace E_Security
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
