@@ -16,7 +16,7 @@ namespace LogicaNegocio
 
             try
             {
-                return contratoUsuario.consultaContrataciones(idContrato);
+                return contratoUsuario.consultaContrataciones(Convert.ToInt32(idContrato));
             }
             catch (Exception ex)
             {

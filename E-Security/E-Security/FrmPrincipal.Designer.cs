@@ -60,10 +60,10 @@
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelLogin = new System.Windows.Forms.Label();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelLogin = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -203,6 +203,7 @@
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
             resources.ApplyResources(this.customizeToolStripMenuItem, "customizeToolStripMenuItem");
+            this.customizeToolStripMenuItem.Click += new System.EventHandler(this.customizeToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -261,6 +262,19 @@
             resources.ApplyResources(this.usuariosToolStripMenuItem, "usuariosToolStripMenuItem");
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportClientes});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
+            // 
+            // reportClientes
+            // 
+            this.reportClientes.Name = "reportClientes";
+            resources.ApplyResources(this.reportClientes, "reportClientes");
+            this.reportClientes.Click += new System.EventHandler(this.reportClientes_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -275,19 +289,6 @@
             this.labelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.labelLogin.ForeColor = System.Drawing.Color.Black;
             this.labelLogin.Name = "labelLogin";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportClientes});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
-            // 
-            // reportClientes
-            // 
-            this.reportClientes.Name = "reportClientes";
-            resources.ApplyResources(this.reportClientes, "reportClientes");
-            this.reportClientes.Click += new System.EventHandler(this.reportClientes_Click);
             // 
             // FrmPrincipal
             // 
