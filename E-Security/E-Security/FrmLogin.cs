@@ -106,11 +106,11 @@ namespace E_Security
                 if (usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text))
                 {
                     validado = true;
+                    this.Dispose();
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
