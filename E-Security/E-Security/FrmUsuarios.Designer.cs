@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtContrasenaDos = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.rbInactivo = new System.Windows.Forms.RadioButton();
@@ -51,21 +53,16 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.toolTipUsuarios = new System.Windows.Forms.ToolTip(this.components);
             this.txtBuscaNombre = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelInformativo = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvListado = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tcUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,6 +93,23 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Módulo de Usuarios";
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Location = new System.Drawing.Point(153, 132);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(218, 20);
+            this.txtNombreUsuario.TabIndex = 31;
+            this.toolTipUsuarios.SetToolTip(this.txtNombreUsuario, "Ej: Roberto Jesus Sanchez Rojas");
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 135);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 13);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Nombre de Usuario:";
             // 
             // txtContrasenaDos
             // 
@@ -256,6 +270,7 @@
             this.btnEliminar.TabIndex = 26;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -307,15 +322,16 @@
             this.txtBuscaNombre.TabIndex = 3;
             this.toolTipUsuarios.SetToolTip(this.txtBuscaNombre, "Ingrese el nombre del usuario que desea buscar en la lista");
             // 
-            // tabControl1
+            // tcUsuarios
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(526, 393);
-            this.tabControl1.TabIndex = 25;
+            this.tcUsuarios.Controls.Add(this.tabPage1);
+            this.tcUsuarios.Controls.Add(this.tabPage2);
+            this.tcUsuarios.Location = new System.Drawing.Point(2, 1);
+            this.tcUsuarios.Name = "tcUsuarios";
+            this.tcUsuarios.SelectedIndex = 0;
+            this.tcUsuarios.Size = new System.Drawing.Size(526, 393);
+            this.tcUsuarios.TabIndex = 25;
+            this.tcUsuarios.SelectedIndexChanged += new System.EventHandler(this.tcUsuarios_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -338,7 +354,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(490, 336);
+            this.tabPage2.Size = new System.Drawing.Size(518, 367);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Listado de Usuarios";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -368,7 +384,7 @@
             // 
             this.groupBox3.Controls.Add(this.dgvListado);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 53);
+            this.groupBox3.Location = new System.Drawing.Point(15, 53);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(484, 277);
             this.groupBox3.TabIndex = 1;
@@ -380,10 +396,6 @@
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.cedula,
-            this.nombreCompleto});
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.Location = new System.Drawing.Point(3, 16);
             this.dgvListado.MultiSelect = false;
@@ -392,60 +404,20 @@
             this.dgvListado.Size = new System.Drawing.Size(478, 258);
             this.dgvListado.TabIndex = 0;
             // 
-            // id
-            // 
-            this.id.FillWeight = 69.44444F;
-            this.id.HeaderText = "ID Usuario";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 101;
-            // 
-            // cedula
-            // 
-            this.cedula.FillWeight = 100.798F;
-            this.cedula.HeaderText = "Cédula";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 146;
-            // 
-            // nombreCompleto
-            // 
-            this.nombreCompleto.FillWeight = 129.7576F;
-            this.nombreCompleto.HeaderText = "Nombre Completo";
-            this.nombreCompleto.Name = "nombreCompleto";
-            this.nombreCompleto.ReadOnly = true;
-            this.nombreCompleto.Width = 188;
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(153, 132);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(218, 20);
-            this.txtNombreUsuario.TabIndex = 31;
-            this.toolTipUsuarios.SetToolTip(this.txtNombreUsuario, "Ej: Roberto Jesus Sanchez Rojas");
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 13);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Nombre de Usuario:";
-            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 415);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmUsuarios";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tcUsuarios.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -478,14 +450,11 @@
         private System.Windows.Forms.TextBox txtContrasenaDos;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.ToolTip toolTipUsuarios;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcUsuarios;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvListado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompleto;
         private System.Windows.Forms.Label labelInformativo;
         private System.Windows.Forms.TextBox txtBuscaNombre;
         private System.Windows.Forms.Label label7;
