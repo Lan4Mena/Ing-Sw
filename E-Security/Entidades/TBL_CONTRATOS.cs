@@ -18,7 +18,6 @@ namespace Entidades
         public TBL_CONTRATOS()
         {
             this.DETALLE_CONTRATO = new HashSet<DETALLE_CONTRATO>();
-            this.DETALLE_CONTRATO1 = new HashSet<DETALLE_CONTRATO>();
         }
     
         public int ID_CONTRATO { get; set; }
@@ -31,13 +30,7 @@ namespace Entidades
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLE_CONTRATO> DETALLE_CONTRATO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_CONTRATO> DETALLE_CONTRATO1 { get; set; }
         public virtual TBL_CLIENTES TBL_CLIENTES { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES1 { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES2 { get; set; }
         public virtual TBL_USUARIOS TBL_USUARIOS { get; set; }
-        public virtual TBL_USUARIOS TBL_USUARIOS1 { get; set; }
-        public virtual TBL_USUARIOS TBL_USUARIOS2 { get; set; }
     }
 }

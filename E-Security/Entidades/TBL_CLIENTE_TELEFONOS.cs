@@ -19,7 +19,5 @@ namespace Entidades
         public int TELEFONO { get; set; }
     
         public virtual TBL_CLIENTES TBL_CLIENTES { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES1 { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES2 { get; set; }
     }
 }

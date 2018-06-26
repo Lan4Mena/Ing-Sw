@@ -18,8 +18,6 @@ namespace Entidades
         public TBL_USUARIOS()
         {
             this.TBL_CONTRATOS = new HashSet<TBL_CONTRATOS>();
-            this.TBL_CONTRATOS1 = new HashSet<TBL_CONTRATOS>();
-            this.TBL_CONTRATOS2 = new HashSet<TBL_CONTRATOS>();
         }
     
         public int ID_Usuario { get; set; }
@@ -31,9 +29,5 @@ namespace Entidades
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_CONTRATOS> TBL_CONTRATOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_CONTRATOS> TBL_CONTRATOS1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_CONTRATOS> TBL_CONTRATOS2 { get; set; }
     }
 }

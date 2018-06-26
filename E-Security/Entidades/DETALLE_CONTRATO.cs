@@ -20,8 +20,7 @@ namespace Entidades
         public decimal MONTO_OFICIAL { get; set; }
     
         public virtual TBL_CONTRATOS TBL_CONTRATOS { get; set; }
-        public virtual TBL_CONTRATOS TBL_CONTRATOS1 { get; set; }
         public virtual TBL_OFICIALES TBL_OFICIALES { get; set; }
-        public virtual TBL_OFICIALES TBL_OFICIALES1 { get; set; }
+
     }
 }

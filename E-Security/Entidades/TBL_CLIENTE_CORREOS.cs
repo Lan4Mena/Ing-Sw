@@ -19,7 +19,5 @@ namespace Entidades
         public string CORREO { get; set; }
     
         public virtual TBL_CLIENTES TBL_CLIENTES { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES1 { get; set; }
-        public virtual TBL_CLIENTES TBL_CLIENTES2 { get; set; }
     }
 }
