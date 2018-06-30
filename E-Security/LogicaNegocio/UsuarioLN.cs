@@ -24,6 +24,19 @@ namespace LogicaNegocio
             }
         }
 
+        public List<TBL_USUARIOS> usuarioGeneral()
+        {
+            try
+            {
+                return new UsuarioDAL().consultaGeneralUsuario();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Boolean agregarUsuario(TBL_USUARIOS usuario)
         {
             try

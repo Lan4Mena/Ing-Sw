@@ -25,6 +25,22 @@ namespace AccesoDatos
             }
         }
 
+        public List<TBL_USUARIOS> consultaGeneralUsuario( )
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                       return db.TBL_USUARIOS.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Boolean agregarUsuario(TBL_USUARIOS usuario)
         {
             try

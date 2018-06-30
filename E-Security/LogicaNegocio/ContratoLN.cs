@@ -11,12 +11,13 @@ namespace LogicaNegocio
     public class ContratoLN
     {
         ContratoDAL contratoUsuario=new ContratoDAL();
-        public List<Object> consultaContrataciones(String idContrato)
+        public bool consultaContrataciones(String idContrato)
         {
 
             try
             {
-                return contratoUsuario.consultaContrataciones(Convert.ToInt32(idContrato));
+                //return contratoUsuario.consultaContrataciones(Convert.ToInt32(idContrato));
+                return false;
             }
             catch (Exception ex)
             {

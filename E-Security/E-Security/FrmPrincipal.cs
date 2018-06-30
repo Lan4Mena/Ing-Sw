@@ -14,6 +14,7 @@ namespace E_Security
     {
         ReportCliente reporte;
         FrmContratos contratos;
+        reportOficial_Inventarios reporteOficiales;
         public FrmPrincipal()
         {
             
@@ -57,6 +58,12 @@ namespace E_Security
         {
             contratos = new FrmContratos();
             contratos.ShowDialog();
+        }
+
+        private void oficialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reporteOficiales = new reportOficial_Inventarios();
+            reporteOficiales.ShowDialog();
         }
     }
 }

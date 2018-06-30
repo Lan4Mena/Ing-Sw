@@ -32,7 +32,7 @@ namespace E_Security
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             consultarContratosTB.Add(logicaLN.consultaContrataciones(txtIdContrato.Text));
-            if (logicaLN.consultaContrataciones(txtIdContrato.Text) != null)
+            /*if (logicaLN.consultaContrataciones(txtIdContrato.Text) != null)
             {
                 foreach (var value in consultarContratosTB)
                 {
@@ -44,7 +44,7 @@ namespace E_Security
             else
             {
                 MessageBox.Show("No existen contratos registados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            }*/
             
         }
     }

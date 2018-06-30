@@ -64,6 +64,7 @@
             this.reportClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
+            this.oficialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -265,7 +266,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reportClientes});
+            this.reportClientes,
+            this.oficialesToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             // 
@@ -289,6 +291,12 @@
             this.labelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.labelLogin.ForeColor = System.Drawing.Color.Black;
             this.labelLogin.Name = "labelLogin";
+            // 
+            // oficialesToolStripMenuItem
+            // 
+            this.oficialesToolStripMenuItem.Name = "oficialesToolStripMenuItem";
+            resources.ApplyResources(this.oficialesToolStripMenuItem, "oficialesToolStripMenuItem");
+            this.oficialesToolStripMenuItem.Click += new System.EventHandler(this.oficialesToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -348,6 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportClientes;
+        private System.Windows.Forms.ToolStripMenuItem oficialesToolStripMenuItem;
     }
 }
 
