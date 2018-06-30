@@ -81,6 +81,41 @@ namespace AccesoDatos
             }
         }
 
+        public List<TBL_USUARIOS> getListadoUsuarios()
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                    return db.TBL_USUARIOS.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public bool eliminarUsuario(String identificacion)
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                    TBL_USUARIOS usuarioEliminar = db.TBL_USUARIOS.First(Usuario => Usuario.identificacion == identificacion);
+                    db.TBL_USUARIOS.Remove(usuarioEliminar);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
         public bool validarUsuario(string nombreUsuario, string contrasena)
         {
             try
