@@ -22,7 +22,6 @@ namespace E_Security
             InitializeComponent();
             this.padre = padre;
         }
-
         private void txtExit_MouseLeave(object sender, EventArgs e)
         {
             try
@@ -36,7 +35,6 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void txtExit_MouseMove(object sender, MouseEventArgs e)
         {
             try
@@ -50,7 +48,6 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void txtExit_Click(object sender, EventArgs e)
         {
             try
@@ -67,7 +64,6 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -81,7 +77,6 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             try
@@ -98,14 +93,15 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text))
+                if (usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text) != null)
                 {
                     validado = true;
+                    padre.Login = txtNombreUsuario.Text;
+                    padre.IdUsuario = usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text).ID_Usuario.ToString();
                     this.Dispose();
                 }
             }
@@ -114,7 +110,6 @@ namespace E_Security
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 

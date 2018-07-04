@@ -116,13 +116,13 @@ namespace AccesoDatos
             }
         }
 
-        public bool validarUsuario(string nombreUsuario, string contrasena)
+        public TBL_USUARIOS validarUsuario(string nombreUsuario, string contrasena)
         {
             try
             {
                 using (DBEsparzaSeguridadEntities db=new DBEsparzaSeguridadEntities())
                 {
-                    return db.TBL_USUARIOS.First(TBL_USUARIOS => TBL_USUARIOS.Nombre_Usuario==nombreUsuario && TBL_USUARIOS.contrasena==contrasena) != null;
+                    return db.TBL_USUARIOS.First(TBL_USUARIOS => TBL_USUARIOS.Nombre_Usuario==nombreUsuario && TBL_USUARIOS.contrasena==contrasena);
                 }
             }
             catch (Exception ex)
