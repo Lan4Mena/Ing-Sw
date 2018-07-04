@@ -25,6 +25,22 @@ namespace AccesoDatos
             }
         }
 
+        public List<TBL_USUARIOS> consultaGeneralUsuario( )
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                       return db.TBL_USUARIOS.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Boolean agregarUsuario(TBL_USUARIOS usuario)
         {
             try
@@ -65,13 +81,48 @@ namespace AccesoDatos
             }
         }
 
-        public bool validarUsuario(string nombreUsuario, string contrasena)
+        public List<TBL_USUARIOS> getListadoUsuarios()
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                    return db.TBL_USUARIOS.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public bool eliminarUsuario(String identificacion)
+        {
+            try
+            {
+                using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
+                {
+                    TBL_USUARIOS usuarioEliminar = db.TBL_USUARIOS.First(Usuario => Usuario.identificacion == identificacion);
+                    db.TBL_USUARIOS.Remove(usuarioEliminar);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TBL_USUARIOS validarUsuario(string nombreUsuario, string contrasena)
         {
             try
             {
                 using (DBEsparzaSeguridadEntities db=new DBEsparzaSeguridadEntities())
                 {
-                    return db.TBL_USUARIOS.First(TBL_USUARIOS => TBL_USUARIOS.Nombre_Usuario==nombreUsuario && TBL_USUARIOS.contrasena==contrasena) != null;
+                    return db.TBL_USUARIOS.First(TBL_USUARIOS => TBL_USUARIOS.Nombre_Usuario==nombreUsuario && TBL_USUARIOS.contrasena==contrasena);
                 }
             }
             catch (Exception ex)

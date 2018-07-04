@@ -10,13 +10,14 @@ namespace LogicaNegocio
 {
     public class ContratoLN
     {
-        ContratoDAL contratoUsuario=new ContratoDAL();
-        public List<Object> consultaContrataciones(String idContrato)
+        ContratoDAL contratoUsuario = new ContratoDAL();
+
+        public bool consultaContrataciones(String idContrato)
         {
 
             try
             {
-                return contratoUsuario.consultaContrataciones(idContrato);
+                return contratoUsuario.consultaContrataciones(Convert.ToInt32(idContrato));
             }
             catch (Exception ex)
             {
@@ -24,5 +25,30 @@ namespace LogicaNegocio
                 throw new Exception(ex.Message);
             }
         }
-    }
+        public Object[] getDataContratacion()
+        {
+            try
+            {
+                return contratoUsuario.getDatos();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<TBL_OFICIALES> getOficiales()
+        {
+            try
+            {
+                return contratoUsuario.getOficiales();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+    }  
+
 }

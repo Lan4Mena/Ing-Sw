@@ -16,30 +16,41 @@ namespace E_Security
     public partial class FrmContratos : Form
     {
         ContratoLN logicaLN;
-        List<Object> consultarContratosTB;
         public FrmContratos()
         {
             InitializeComponent();
-            consultarContratosTB = new List<Object>();
             logicaLN = new ContratoLN();
         }
 
         private void FrmContratos_Load(object sender, EventArgs e)
         {
+            try
+            {
+                cbOficiales.DataSource = logicaLN.getOficiales();
+                cbOficiales.ValueMember = "ID_OFICIAL";
+                cbOficiales.DisplayMember = "NOMBRE_COMPLETO";
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
-            consultarContratosTB.Add(logicaLN.consultaContrataciones(txtIdContrato.Text));
-            foreach (var value in consultarContratosTB)
+            
+            if (logicaLN.consultaContrataciones(txtIdContrato.Text))
             {
-                Console.WriteLine(value);
-                txtCedCliente.Text = Convert.ToString(value.ToString());
-                //Esto es un cambio, v2
+                Object[] datos = logicaLN.getDataContratacion();
+                TBL_CONTRATOS contrato = (TBL_CONTRATOS)datos[0];
+                dtpFechaInicio.Value = (DateTime)contrato.FECHA_INICIAL;
             }
-
-
+            else
+            {
+                MessageBox.Show("No existen contratos registados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }

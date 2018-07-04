@@ -18,7 +18,6 @@ namespace Entidades
         public TBL_CLIENTES()
         {
             this.TBL_CLIENTE_CORREOS = new HashSet<TBL_CLIENTE_CORREOS>();
-
             this.TBL_CLIENTE_TELEFONOS = new HashSet<TBL_CLIENTE_TELEFONOS>();
             this.TBL_CONTRATOS = new HashSet<TBL_CONTRATOS>();
             this.TBL_TIPO_CEDULAS = new HashSet<TBL_TIPO_CEDULAS>();
@@ -33,12 +32,10 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_CLIENTE_CORREOS> TBL_CLIENTE_CORREOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
         public virtual ICollection<TBL_CLIENTE_TELEFONOS> TBL_CLIENTE_TELEFONOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_CONTRATOS> TBL_CONTRATOS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_TIPO_CEDULAS> TBL_TIPO_CEDULAS { get; set; }
-
     }
 }

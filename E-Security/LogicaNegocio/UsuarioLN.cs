@@ -24,6 +24,19 @@ namespace LogicaNegocio
             }
         }
 
+        public List<TBL_USUARIOS> usuarioGeneral()
+        {
+            try
+            {
+                return new UsuarioDAL().consultaGeneralUsuario();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Boolean agregarUsuario(TBL_USUARIOS usuario)
         {
             try
@@ -50,7 +63,20 @@ namespace LogicaNegocio
             }
         }
 
-        public bool validarUsuario(string nombreUsuario, string contrasena)
+        public bool eliminarUsuario(String identificacion)
+        {
+            try
+            {
+                return new UsuarioDAL().eliminarUsuario(identificacion);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TBL_USUARIOS validarUsuario(string nombreUsuario, string contrasena)
         {
             try
             {
@@ -60,6 +86,19 @@ namespace LogicaNegocio
             {
 
                 throw new Exception(ex.Message);
+            }
+        }
+
+        public List<TBL_USUARIOS> getListadoUsuarios()
+        {
+            try
+            {
+                return new UsuarioDAL().getListadoUsuarios();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
             }
         }
     }

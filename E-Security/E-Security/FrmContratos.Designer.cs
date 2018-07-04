@@ -44,17 +44,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridViewOficial = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbOficiales = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIdContrato = new System.Windows.Forms.TextBox();
@@ -77,7 +74,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2.SuspendLayout();
@@ -208,13 +205,13 @@
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.comboBox1);
+            this.groupBox5.Controls.Add(this.cbOficiales);
             this.groupBox5.Controls.Add(this.textBox8);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.dateTimePicker2);
             this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.dateTimePicker1);
+            this.groupBox5.Controls.Add(this.dtpFechaInicio);
             this.groupBox5.Controls.Add(this.textBox9);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.txtIdContrato);
@@ -282,10 +279,6 @@
             this.dataGridViewOficial.AllowUserToAddRows = false;
             this.dataGridViewOficial.AllowUserToOrderColumns = true;
             this.dataGridViewOficial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOficial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
             this.dataGridViewOficial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOficial.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOficial.MultiSelect = false;
@@ -293,30 +286,6 @@
             this.dataGridViewOficial.ReadOnly = true;
             this.dataGridViewOficial.Size = new System.Drawing.Size(519, 253);
             this.dataGridViewOficial.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 69.44444F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID Usuario";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 101;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.FillWeight = 100.798F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Cédula";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 146;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.FillWeight = 129.7576F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre Completo";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 188;
             // 
             // label4
             // 
@@ -327,13 +296,13 @@
             this.label4.TabIndex = 40;
             this.label4.Text = "Oficiales disponibles:";
             // 
-            // comboBox1
+            // cbOficiales
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 188);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 21);
-            this.comboBox1.TabIndex = 39;
+            this.cbOficiales.FormattingEnabled = true;
+            this.cbOficiales.Location = new System.Drawing.Point(149, 188);
+            this.cbOficiales.Name = "cbOficiales";
+            this.cbOficiales.Size = new System.Drawing.Size(172, 21);
+            this.cbOficiales.TabIndex = 39;
             // 
             // textBox8
             // 
@@ -376,12 +345,12 @@
             this.label12.TabIndex = 34;
             this.label12.Text = "Fecha de Inicio:";
             // 
-            // dateTimePicker1
+            // dtpFechaInicio
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(149, 90);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(170, 20);
-            this.dateTimePicker1.TabIndex = 33;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(149, 90);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(170, 20);
+            this.dtpFechaInicio.TabIndex = 33;
             // 
             // textBox9
             // 
@@ -553,7 +522,7 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.btnAceptar);
+            this.groupBox2.Controls.Add(this.btnConsultar);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(7, 513);
@@ -602,18 +571,18 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // btnAceptar
+            // btnConsultar
             // 
-            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.ForeColor = System.Drawing.Color.Black;
-            this.btnAceptar.Location = new System.Drawing.Point(97, 13);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(92, 28);
-            this.btnAceptar.TabIndex = 23;
-            this.btnAceptar.Text = "Consultar";
-            this.btnAceptar.UseVisualStyleBackColor = false;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
+            this.btnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultar.Location = new System.Drawing.Point(97, 13);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(92, 28);
+            this.btnConsultar.TabIndex = 23;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnCancelar
             // 
@@ -685,17 +654,14 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dataGridViewOficial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbOficiales;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIdContrato;
@@ -718,7 +684,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TabControl tabControl1;
     }
