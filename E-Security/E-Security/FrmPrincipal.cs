@@ -15,6 +15,7 @@ namespace E_Security
         ReportCliente reporte;
         FrmContratos contratos;
         reportOficial_Inventarios reporteOficiales;
+        String idUsuario;
         public FrmPrincipal()
         {
             
@@ -22,6 +23,8 @@ namespace E_Security
            
         }
         public string Login{get{return labelLogin.Text; }set{labelLogin.Text = value;}}
+
+        public string IdUsuario { get => idUsuario; set => idUsuario = value; }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {

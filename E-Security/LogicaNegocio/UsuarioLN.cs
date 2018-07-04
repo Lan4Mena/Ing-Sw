@@ -76,7 +76,7 @@ namespace LogicaNegocio
             }
         }
 
-        public bool validarUsuario(string nombreUsuario, string contrasena)
+        public TBL_USUARIOS validarUsuario(string nombreUsuario, string contrasena)
         {
             try
             {
