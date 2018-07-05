@@ -33,26 +33,26 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagridBusquedad = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnRemoverDataGrid = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridViewOficial = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.cbOficiales = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIdContrato = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridBusquedad)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -134,7 +134,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.datagridBusquedad);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(39, 53);
             this.groupBox3.Name = "groupBox3";
@@ -143,22 +143,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información de usuarios";
             // 
-            // dataGridView1
+            // datagridBusquedad
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datagridBusquedad.AllowUserToAddRows = false;
+            this.datagridBusquedad.AllowUserToOrderColumns = true;
+            this.datagridBusquedad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridBusquedad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.cedula,
             this.nombreCompleto});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(478, 258);
-            this.dataGridView1.TabIndex = 0;
+            this.datagridBusquedad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridBusquedad.Location = new System.Drawing.Point(3, 16);
+            this.datagridBusquedad.MultiSelect = false;
+            this.datagridBusquedad.Name = "datagridBusquedad";
+            this.datagridBusquedad.ReadOnly = true;
+            this.datagridBusquedad.Size = new System.Drawing.Size(478, 258);
+            this.datagridBusquedad.TabIndex = 0;
             // 
             // id
             // 
@@ -201,18 +201,18 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.button6);
-            this.groupBox5.Controls.Add(this.button5);
-            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Controls.Add(this.btnRemoverDataGrid);
+            this.groupBox5.Controls.Add(this.btnAgregar);
             this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.cbOficiales);
-            this.groupBox5.Controls.Add(this.textBox8);
+            this.groupBox5.Controls.Add(this.txtMonto);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.dateTimePicker2);
+            this.groupBox5.Controls.Add(this.txtFechaFin);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.dtpFechaInicio);
-            this.groupBox5.Controls.Add(this.textBox9);
+            this.groupBox5.Controls.Add(this.txtMontoTotal);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.txtIdContrato);
             this.groupBox5.Controls.Add(this.label11);
@@ -239,29 +239,31 @@
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnRemoverDataGrid
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(129, 282);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 28);
-            this.button5.TabIndex = 42;
-            this.button5.Text = "Remover";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnRemoverDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
+            this.btnRemoverDataGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverDataGrid.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoverDataGrid.Location = new System.Drawing.Point(129, 282);
+            this.btnRemoverDataGrid.Name = "btnRemoverDataGrid";
+            this.btnRemoverDataGrid.Size = new System.Drawing.Size(90, 28);
+            this.btnRemoverDataGrid.TabIndex = 42;
+            this.btnRemoverDataGrid.Text = "Remover";
+            this.btnRemoverDataGrid.UseVisualStyleBackColor = false;
+            this.btnRemoverDataGrid.Click += new System.EventHandler(this.btnRemoverDataGrid_Click);
             // 
-            // button4
+            // btnAgregar
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(13, 282);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 28);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Agregar";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(13, 282);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(94, 28);
+            this.btnAgregar.TabIndex = 28;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox6
             // 
@@ -304,12 +306,13 @@
             this.cbOficiales.Size = new System.Drawing.Size(172, 21);
             this.cbOficiales.TabIndex = 39;
             // 
-            // textBox8
+            // txtMonto
             // 
-            this.textBox8.Location = new System.Drawing.Point(149, 229);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(173, 20);
-            this.textBox8.TabIndex = 38;
+            this.txtMonto.Location = new System.Drawing.Point(149, 229);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(173, 20);
+            this.txtMonto.TabIndex = 38;
+            this.txtMonto.Text = "0";
             // 
             // label2
             // 
@@ -329,12 +332,13 @@
             this.label13.TabIndex = 36;
             this.label13.Text = "Fecha de Finalización:";
             // 
-            // dateTimePicker2
+            // txtFechaFin
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(149, 139);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(173, 20);
-            this.dateTimePicker2.TabIndex = 35;
+            this.txtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaFin.Location = new System.Drawing.Point(149, 139);
+            this.txtFechaFin.Name = "txtFechaFin";
+            this.txtFechaFin.Size = new System.Drawing.Size(173, 20);
+            this.txtFechaFin.TabIndex = 35;
             // 
             // label12
             // 
@@ -347,17 +351,19 @@
             // 
             // dtpFechaInicio
             // 
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaInicio.Location = new System.Drawing.Point(149, 90);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(170, 20);
             this.dtpFechaInicio.TabIndex = 33;
             // 
-            // textBox9
+            // txtMontoTotal
             // 
-            this.textBox9.Location = new System.Drawing.Point(704, 319);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(161, 20);
-            this.textBox9.TabIndex = 16;
+            this.txtMontoTotal.Location = new System.Drawing.Point(704, 319);
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(161, 20);
+            this.txtMontoTotal.TabIndex = 16;
+            this.txtMontoTotal.Text = "0";
             // 
             // label10
             // 
@@ -576,9 +582,9 @@
             this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
             this.btnConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultar.Location = new System.Drawing.Point(97, 13);
+            this.btnConsultar.Location = new System.Drawing.Point(96, 13);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(92, 28);
+            this.btnConsultar.Size = new System.Drawing.Size(93, 28);
             this.btnConsultar.TabIndex = 23;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
@@ -620,7 +626,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridBusquedad)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -643,26 +649,26 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datagridBusquedad;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompleto;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnRemoverDataGrid;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dataGridViewOficial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbOficiales;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker txtFechaFin;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtMontoTotal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIdContrato;
         private System.Windows.Forms.Label label11;

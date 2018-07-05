@@ -96,6 +96,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(235, 19);
             this.txtContrasena.TabIndex = 16;
+            this.txtContrasena.Text = "123";
             // 
             // label4
             // 
@@ -118,6 +119,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(235, 19);
             this.txtNombreUsuario.TabIndex = 14;
+            this.txtNombreUsuario.Text = "admin";
             // 
             // btnCancelar
             // 

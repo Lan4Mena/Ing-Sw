@@ -11,14 +11,14 @@ namespace AccesoDatos
    public class ContratoDAL
     {
         private TBL_CONTRATOS consultaContrato;
-        private List<TBL_OFICIALES> detalleContratoOficial;
+        private List<TBL_OFICIALES> tblDetOficial;
         private String[] consultaUsuario;
         private String[] tbClientes;
-
+        private DETALLE_CONTRATO detalleContrato;
 
         public Boolean consultaContrataciones(int idContrato)
         {
-
+            tblDetOficial = new List<TBL_OFICIALES>();
             try
             {
                 using (DBEsparzaSeguridadEntities db = new DBEsparzaSeguridadEntities())
@@ -37,12 +37,13 @@ namespace AccesoDatos
                                           };
                         foreach (var item in resultado)
                         {
-                            detalleContratoOficial.Add(new TBL_OFICIALES()
+                            tblDetOficial.Add(new TBL_OFICIALES()
                             {
                                 CEDULA_OFICIAL = item.cedOficial,
                                 NOMBRE_COMPLETO = item.nombreOficial
                             });
                         }
+                        detalleContrato = db.DETALLE_CONTRATO.First(detContra => detContra.ID_CONTRATO == idContrato);
 
                         var algo = (from cliente in db.TBL_CLIENTES join
                                     contrato in db.TBL_CONTRATOS on
@@ -85,7 +86,7 @@ namespace AccesoDatos
 
         public Object[] getDatos()
         {
-            return new Object[] {consultaContrato,detalleContratoOficial,consultaUsuario,tbClientes};
+            return new Object[] {consultaContrato,tblDetOficial,consultaUsuario,tbClientes, detalleContrato };
         }
 
         public List<TBL_OFICIALES> getOficiales()
