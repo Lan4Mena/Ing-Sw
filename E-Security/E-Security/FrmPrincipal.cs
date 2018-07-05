@@ -16,6 +16,7 @@ namespace E_Security
         FrmContratos contratos;
         reportOficial_Inventarios reporteOficiales;
         String idUsuario;
+   
         public FrmPrincipal()
         {
             
@@ -58,7 +59,7 @@ namespace E_Security
 
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            contratos = new FrmContratos();
+            contratos = new FrmContratos(this);
             contratos.ShowDialog();
         }
 

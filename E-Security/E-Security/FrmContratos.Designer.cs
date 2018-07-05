@@ -61,7 +61,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtNomCompUsuario = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtCedUsuario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUbicacion = new System.Windows.Forms.TextBox();
@@ -396,7 +396,7 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.txtNomCompUsuario);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.txtUsuario);
+            this.groupBox4.Controls.Add(this.txtCedUsuario);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 6);
@@ -410,7 +410,6 @@
             // 
             this.txtNomUsuario.Location = new System.Drawing.Point(149, 56);
             this.txtNomUsuario.Name = "txtNomUsuario";
-            this.txtNomUsuario.PasswordChar = '*';
             this.txtNomUsuario.ReadOnly = true;
             this.txtNomUsuario.Size = new System.Drawing.Size(265, 20);
             this.txtNomUsuario.TabIndex = 32;
@@ -441,13 +440,13 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Nombre Completo:";
             // 
-            // txtUsuario
+            // txtCedUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(149, 18);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(265, 20);
-            this.txtUsuario.TabIndex = 12;
+            this.txtCedUsuario.Location = new System.Drawing.Point(149, 18);
+            this.txtCedUsuario.Name = "txtCedUsuario";
+            this.txtCedUsuario.ReadOnly = true;
+            this.txtCedUsuario.Size = new System.Drawing.Size(265, 20);
+            this.txtCedUsuario.TabIndex = 12;
             // 
             // label9
             // 
@@ -677,7 +676,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNomCompUsuario;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtCedUsuario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUbicacion;
