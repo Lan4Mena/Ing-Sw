@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelInformativo = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.datagridBusquedad = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -75,11 +66,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridBusquedad)).BeginInit();
+            this.lbIdContrato = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -89,100 +78,6 @@
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.labelInformativo);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(889, 577);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Listado de Clientes";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // labelInformativo
-            // 
-            this.labelInformativo.AutoSize = true;
-            this.labelInformativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInformativo.ForeColor = System.Drawing.Color.Red;
-            this.labelInformativo.Location = new System.Drawing.Point(221, 37);
-            this.labelInformativo.Name = "labelInformativo";
-            this.labelInformativo.Size = new System.Drawing.Size(138, 13);
-            this.labelInformativo.TabIndex = 4;
-            this.labelInformativo.Text = "Este Usuario NO existe";
-            this.labelInformativo.Visible = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(134, 9);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(350, 20);
-            this.textBox6.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Busqueda por Nombre:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.datagridBusquedad);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(39, 53);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(484, 277);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Información de usuarios";
-            // 
-            // datagridBusquedad
-            // 
-            this.datagridBusquedad.AllowUserToAddRows = false;
-            this.datagridBusquedad.AllowUserToOrderColumns = true;
-            this.datagridBusquedad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridBusquedad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.cedula,
-            this.nombreCompleto});
-            this.datagridBusquedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridBusquedad.Location = new System.Drawing.Point(3, 16);
-            this.datagridBusquedad.MultiSelect = false;
-            this.datagridBusquedad.Name = "datagridBusquedad";
-            this.datagridBusquedad.ReadOnly = true;
-            this.datagridBusquedad.Size = new System.Drawing.Size(478, 258);
-            this.datagridBusquedad.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.FillWeight = 69.44444F;
-            this.id.HeaderText = "ID Usuario";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 101;
-            // 
-            // cedula
-            // 
-            this.cedula.FillWeight = 100.798F;
-            this.cedula.HeaderText = "Cédula";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 146;
-            // 
-            // nombreCompleto
-            // 
-            this.nombreCompleto.FillWeight = 129.7576F;
-            this.nombreCompleto.HeaderText = "Nombre Completo";
-            this.nombreCompleto.Name = "nombreCompleto";
-            this.nombreCompleto.ReadOnly = true;
-            this.nombreCompleto.Width = 188;
             // 
             // tabPage1
             // 
@@ -200,6 +95,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lbIdContrato);
             this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.btnRemoverDataGrid);
             this.groupBox5.Controls.Add(this.btnAgregar);
@@ -477,7 +373,6 @@
             // 
             this.txtUbicacion.Location = new System.Drawing.Point(155, 92);
             this.txtUbicacion.Name = "txtUbicacion";
-            this.txtUbicacion.PasswordChar = '*';
             this.txtUbicacion.Size = new System.Drawing.Size(265, 20);
             this.txtUbicacion.TabIndex = 32;
             // 
@@ -512,6 +407,7 @@
             this.txtCedCliente.Name = "txtCedCliente";
             this.txtCedCliente.Size = new System.Drawing.Size(265, 20);
             this.txtCedCliente.TabIndex = 12;
+            this.txtCedCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedCliente_KeyPress);
             // 
             // label1
             // 
@@ -528,7 +424,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.btnConsultar);
-            this.groupBox2.Controls.Add(this.btnCancelar);
+            this.groupBox2.Controls.Add(this.btnFinalizar);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(7, 513);
             this.groupBox2.Name = "groupBox2";
@@ -589,27 +485,36 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // btnCancelar
+            // btnFinalizar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(257, 13);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(92, 28);
-            this.btnCancelar.TabIndex = 24;
-            this.btnCancelar.Text = "Fiinalizar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(166)))), ((int)(((byte)(224)))));
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.Black;
+            this.btnFinalizar.Location = new System.Drawing.Point(257, 13);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(92, 28);
+            this.btnFinalizar.TabIndex = 24;
+            this.btnFinalizar.Text = "Fiinalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(5, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(897, 603);
             this.tabControl1.TabIndex = 28;
+            // 
+            // lbIdContrato
+            // 
+            this.lbIdContrato.AutoSize = true;
+            this.lbIdContrato.Location = new System.Drawing.Point(738, 25);
+            this.lbIdContrato.Name = "lbIdContrato";
+            this.lbIdContrato.Size = new System.Drawing.Size(35, 13);
+            this.lbIdContrato.TabIndex = 43;
+            this.lbIdContrato.Text = "caca";
             // 
             // FrmContratos
             // 
@@ -622,10 +527,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmContratos";
             this.Load += new System.EventHandler(this.FrmContratos_Load);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridBusquedad)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -642,16 +543,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label labelInformativo;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView datagridBusquedad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCompleto;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button6;
@@ -690,7 +581,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label lbIdContrato;
     }
 }

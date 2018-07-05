@@ -49,6 +49,50 @@ namespace LogicaNegocio
                 throw new Exception(e.Message);
             }
         }
+
+        public bool finalizarContrato(TBL_CONTRATOS contrato,List<DETALLE_CONTRATO> detalleContrato)
+        {
+            try
+            {
+                contratoUsuario.guardarContraro(contrato);
+                foreach (var item in detalleContrato)
+                {
+                    contratoUsuario.guardarDetContraro(item);
+                   
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public TBL_CLIENTES retornaCliente(string ced)
+        {
+            try
+            {
+                return contratoUsuario.consultaCliente(ced);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public string getConsecutivo()
+        {
+            try
+            {
+                return contratoUsuario.getConsecutivo();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            };
+        }
     }  
 
 }

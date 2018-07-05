@@ -101,7 +101,8 @@ namespace E_Security
                 {
                     validado = true;
                     padre.Login = txtNombreUsuario.Text;
-                    padre.IdUsuario = usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text).identificacion.ToString();
+                    padre.CedUsuario = usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text).identificacion.ToString();
+                    padre.IdUsuario = usuarioLN.validarUsuario(txtNombreUsuario.Text, txtContrasena.Text).ID_Usuario.ToString();
                     this.Dispose();
                 }
             }

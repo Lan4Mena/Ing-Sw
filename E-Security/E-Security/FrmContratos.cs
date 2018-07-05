@@ -20,6 +20,7 @@ namespace E_Security
         FrmPrincipal padre;
         UsuarioLN logicaUsuarios;
         TBL_USUARIOS users = new TBL_USUARIOS();
+        private TBL_CLIENTES cliente;
         public FrmContratos(FrmPrincipal padre)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace E_Security
         {
             encabezados();
             cargarUsuarioLogeado();
+            cargarIdContrato();
             try
             {
                 cbOficiales.DataSource = logicaContrato.getOficiales();
@@ -49,22 +51,35 @@ namespace E_Security
         {
             if (logicaContrato.consultaContrataciones(txtIdContrato.Text))
             {
+                /*El contrato*/
                 Object[] datos = logicaContrato.getDataContratacion();
                 TBL_CONTRATOS contrato = (TBL_CONTRATOS)datos[0];
-                detUsuario = (String[])datos[2];
                 dtpFechaInicio.Value = (DateTime)contrato.FECHA_INICIAL;
                 txtFechaFin.Value = (DateTime)contrato.FECHA_FINAL;
+                txtMontoTotal.Text =  contrato.MONTO_TOTAL.ToString();
 
-                DETALLE_CONTRATO detCont = (DETALLE_CONTRATO)datos[4];
-                txtMonto.Text = detCont.MONTO_OFICIAL.ToString();
+                /*El Usuario que realizò el contrato*/
+                detUsuario = (String[])datos[2];
                 txtCedUsuario.Text = detUsuario[0].ToString();
                 txtNomUsuario.Text= detUsuario[1].ToString();
                 txtNomCompUsuario.Text= detUsuario[2].ToString();
 
+                /*Cliente al que se le hizo el contrato*/
                 String[] cliente = (String[])datos[3];
                 txtCedCliente.Text = cliente[0].ToString();
                 txtNomCompl.Text = cliente[1].ToString();
                 txtUbicacion.Text = cliente[2].ToString();
+
+                /*Oficiales contratados en el contrato*/
+                List<String[]> oficial = (List<String[]>)datos[1];
+                dataGridViewOficial.DataSource = null;
+                foreach (var item in oficial)
+                {
+                    dataGridViewOficial.Rows.Add(item);
+                }
+
+                /*List<String> lista = new List<String> { oficial.ID_OFICIAL.ToString(), oficial.NOMBRE_COMPLETO ,detCont.MONTO_OFICIAL.ToString()};
+                dataGridViewOficial.Rows.Insert(0, lista);*/
             }
             else
             {
@@ -96,7 +111,7 @@ namespace E_Security
         {
             try
             {
-                txtMontoTotal.Text = (Convert.ToInt32(txtMontoTotal.Text) - (int)dataGridViewOficial.CurrentRow.Cells[2].Value).ToString();
+                txtMontoTotal.Text = (Convert.ToInt32(txtMontoTotal.Text) - Convert.ToInt32(dataGridViewOficial.CurrentRow.Cells[2].Value)).ToString();
                 dataGridViewOficial.Rows.RemoveAt(dataGridViewOficial.CurrentRow.Index);
                
             }
@@ -108,10 +123,64 @@ namespace E_Security
         }
         public void cargarUsuarioLogeado()
         {
-            users = logicaUsuarios.consultarUsuario(padre.IdUsuario);
+            users = logicaUsuarios.consultarUsuario(padre.CedUsuario);
             txtCedUsuario.Text = users.identificacion;
             txtNomUsuario.Text = users.Nombre_Usuario;
             txtNomCompUsuario.Text = users.nombre_completo;
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<DETALLE_CONTRATO> det;
+                det = new List<DETALLE_CONTRATO>();
+                TBL_CONTRATOS contratos = new TBL_CONTRATOS() {FECHA_INICIAL=dtpFechaInicio.Value,
+                    FECHA_FINAL= txtFechaFin.Value,ESTADO_CONTRATO=true,
+                    MONTO_TOTAL =Convert.ToInt32(txtMontoTotal.Text), ID_USUARIO=Convert.ToInt32(padre.IdUsuario),ID_CLIENTE=cliente.ID_CLIENTE,
+                        };
+
+                foreach (DataGridViewRow item in dataGridViewOficial.Rows)
+                {
+
+                    det.Add(new DETALLE_CONTRATO(){ID_CONTRATO = Convert.ToInt32(txtIdContrato.Text),ID_OFICIAL = Convert.ToInt32(item.Cells[0].Value.ToString()),MONTO_OFICIAL= Convert.ToInt32(item.Cells[2].Value.ToString())});
+                }
+
+                logicaContrato.finalizarContrato(contratos, det);
+                cargarIdContrato();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void txtCedCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+               cliente = logicaContrato.retornaCliente(txtCedCliente.Text);
+                if (cliente != null)
+                {
+                    txtNomCompl.Text = cliente.NOMBRE;
+                    txtUbicacion.Text = cliente.UBICACION;
+
+                }
+            }
+        }
+
+        public void cargarIdContrato()
+        {
+            try
+            {
+                lbIdContrato.Text = "Nº de Contrato: " + logicaContrato.getConsecutivo();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
