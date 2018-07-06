@@ -74,10 +74,7 @@ namespace E_Security
                         frm.mostrarMensaje("Error", "No se pudo agregar");
                     }
                 }
-                else
-                {
-                    frm.mostrarMensaje("Error", "Rellene todos los campos");
-                }
+ 
                 frm.ShowDialog();
             } catch (Exception ex)
             {
@@ -101,10 +98,6 @@ namespace E_Security
                     {
                         frm.mostrarMensaje("Error", "No se pudo Modificar");
                     }
-                }
-                else
-                {
-                    frm.mostrarMensaje("Error", "Rellene todos los campos");
                 }
                 frm.ShowDialog();
             }
@@ -130,10 +123,6 @@ namespace E_Security
                     {
                         frm.mostrarMensaje("Error", "No se pudo Eliminar");
                     }
-                }
-                else
-                {
-                    frm.mostrarMensaje("Error", "Rellene el campo de cédula");
                 }
                 frm.ShowDialog();
             }

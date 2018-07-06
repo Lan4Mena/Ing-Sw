@@ -32,19 +32,39 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DBEsparzaSeguridadDataSet = new E_Security.DBEsparzaSeguridadDataSet();
             this.TBL_CLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TBL_CLIENTESTableAdapter = new E_Security.DBEsparzaSeguridadDataSetTableAdapters.TBL_CLIENTESTableAdapter();
+            this.DBEsparzaSeguridadDataSet = new E_Security.DBEsparzaSeguridadDataSet();
             this.TBL_CLIENTE_CORREOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TBL_CLIENTE_CORREOSTableAdapter = new E_Security.DBEsparzaSeguridadDataSetTableAdapters.TBL_CLIENTE_CORREOSTableAdapter();
             this.TBL_CLIENTE_TELEFONOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.TBL_CLIENTESTableAdapter = new E_Security.DBEsparzaSeguridadDataSetTableAdapters.TBL_CLIENTESTableAdapter();
+            this.TBL_CLIENTE_CORREOSTableAdapter = new E_Security.DBEsparzaSeguridadDataSetTableAdapters.TBL_CLIENTE_CORREOSTableAdapter();
             this.TBL_CLIENTE_TELEFONOSTableAdapter = new E_Security.DBEsparzaSeguridadDataSetTableAdapters.TBL_CLIENTE_TELEFONOSTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DBEsparzaSeguridadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DBEsparzaSeguridadDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTE_CORREOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTE_TELEFONOSBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // TBL_CLIENTESBindingSource
+            // 
+            this.TBL_CLIENTESBindingSource.DataMember = "TBL_CLIENTES";
+            this.TBL_CLIENTESBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
+            // 
+            // DBEsparzaSeguridadDataSet
+            // 
+            this.DBEsparzaSeguridadDataSet.DataSetName = "DBEsparzaSeguridadDataSet";
+            this.DBEsparzaSeguridadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TBL_CLIENTE_CORREOSBindingSource
+            // 
+            this.TBL_CLIENTE_CORREOSBindingSource.DataMember = "TBL_CLIENTE_CORREOS";
+            this.TBL_CLIENTE_CORREOSBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
+            // 
+            // TBL_CLIENTE_TELEFONOSBindingSource
+            // 
+            this.TBL_CLIENTE_TELEFONOSBindingSource.DataMember = "TBL_CLIENTE_TELEFONOS";
+            this.TBL_CLIENTE_TELEFONOSBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
             // 
             // reportViewer1
             // 
@@ -65,33 +85,13 @@
             this.reportViewer1.Size = new System.Drawing.Size(668, 423);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DBEsparzaSeguridadDataSet
-            // 
-            this.DBEsparzaSeguridadDataSet.DataSetName = "DBEsparzaSeguridadDataSet";
-            this.DBEsparzaSeguridadDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TBL_CLIENTESBindingSource
-            // 
-            this.TBL_CLIENTESBindingSource.DataMember = "TBL_CLIENTES";
-            this.TBL_CLIENTESBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
-            // 
             // TBL_CLIENTESTableAdapter
             // 
             this.TBL_CLIENTESTableAdapter.ClearBeforeFill = true;
             // 
-            // TBL_CLIENTE_CORREOSBindingSource
-            // 
-            this.TBL_CLIENTE_CORREOSBindingSource.DataMember = "TBL_CLIENTE_CORREOS";
-            this.TBL_CLIENTE_CORREOSBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
-            // 
             // TBL_CLIENTE_CORREOSTableAdapter
             // 
             this.TBL_CLIENTE_CORREOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // TBL_CLIENTE_TELEFONOSBindingSource
-            // 
-            this.TBL_CLIENTE_TELEFONOSBindingSource.DataMember = "TBL_CLIENTE_TELEFONOS";
-            this.TBL_CLIENTE_TELEFONOSBindingSource.DataSource = this.DBEsparzaSeguridadDataSet;
             // 
             // TBL_CLIENTE_TELEFONOSTableAdapter
             // 
@@ -104,10 +104,11 @@
             this.ClientSize = new System.Drawing.Size(668, 423);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReportCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportCliente";
             this.Load += new System.EventHandler(this.ReportCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DBEsparzaSeguridadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DBEsparzaSeguridadDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTE_CORREOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TBL_CLIENTE_TELEFONOSBindingSource)).EndInit();
             this.ResumeLayout(false);

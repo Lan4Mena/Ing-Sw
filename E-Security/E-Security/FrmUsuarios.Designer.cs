@@ -216,16 +216,17 @@
             // 
             // txtIdUsuario
             // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(151, 33);
+            this.txtIdUsuario.Enabled = false;
+            this.txtIdUsuario.Location = new System.Drawing.Point(336, 19);
             this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(218, 20);
+            this.txtIdUsuario.Size = new System.Drawing.Size(44, 20);
             this.txtIdUsuario.TabIndex = 12;
             this.toolTipUsuarios.SetToolTip(this.txtIdUsuario, "Identificador del Usuario");
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Location = new System.Drawing.Point(246, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 11;
