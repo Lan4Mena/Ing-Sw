@@ -133,8 +133,8 @@ namespace E_Security
         {
             try
             {
-                List<DETALLE_CONTRATO> det;
-                det = new List<DETALLE_CONTRATO>();
+                List<DETALLE_CONTRATO> detalleContrato;
+                detalleContrato = new List<DETALLE_CONTRATO>();
                 TBL_CONTRATOS contratos = new TBL_CONTRATOS() {FECHA_INICIAL=dtpFechaInicio.Value,
                     FECHA_FINAL= txtFechaFin.Value,ESTADO_CONTRATO=true,
                     MONTO_TOTAL =Convert.ToInt32(txtMontoTotal.Text), ID_USUARIO=Convert.ToInt32(padre.IdUsuario),ID_CLIENTE=cliente.ID_CLIENTE,
@@ -143,10 +143,10 @@ namespace E_Security
                 foreach (DataGridViewRow item in dataGridViewOficial.Rows)
                 {
 
-                    det.Add(new DETALLE_CONTRATO(){ID_CONTRATO = Convert.ToInt32(txtIdContrato.Text),ID_OFICIAL = Convert.ToInt32(item.Cells[0].Value.ToString()),MONTO_OFICIAL= Convert.ToInt32(item.Cells[2].Value.ToString())});
+                    detalleContrato.Add(new DETALLE_CONTRATO(){ID_CONTRATO = Convert.ToInt32(txtIdContrato.Text),ID_OFICIAL = Convert.ToInt32(item.Cells[0].Value.ToString()),MONTO_OFICIAL= Convert.ToInt32(item.Cells[2].Value.ToString())});
                 }
 
-                logicaContrato.finalizarContrato(contratos, det);
+                logicaContrato.finalizarContrato(contratos, detalleContrato);
                 cargarIdContrato();
             }
             catch (Exception)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "E-Security\Presentacion.csproj", "{2F139659-FC02-4FD1-9EE2-DEAD51F83BD0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocio", "LogicaNegocio\LogicaNegocio.csproj", "{9D67566C-2041-4E33-8D3F-B6E6D0F57492}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{34C9E408-39BF-4F82-858B-01929C5980D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasIngSW", "PruebasIngSW\PruebasIngSW.csproj", "{43864994-4D94-420D-9226-1A65BCAE8FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{34C9E408-39BF-4F82-858B-01929C5980D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C9E408-39BF-4F82-858B-01929C5980D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C9E408-39BF-4F82-858B-01929C5980D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43864994-4D94-420D-9226-1A65BCAE8FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43864994-4D94-420D-9226-1A65BCAE8FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43864994-4D94-420D-9226-1A65BCAE8FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43864994-4D94-420D-9226-1A65BCAE8FEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F647559C-6313-4080-BAF0-466E5359FD5A}
 	EndGlobalSection
 EndGlobal
